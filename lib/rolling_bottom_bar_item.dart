@@ -5,11 +5,11 @@ import 'constants.dart';
 
 class RollingBottomBarItem {
   const RollingBottomBarItem(this.iconData,
-      {this.label, this.activeColor = Colors.green});
+      {this.label, this.activeColor = Colors.green, this.iconSize});
 
   /// IconData necesary to render the icon
   final IconData? iconData;
-
+  final double? iconSize;
   /// String to put the label for the icon
   final String? label;
 
@@ -20,14 +20,14 @@ class RollingBottomBarItem {
 /// Class to generate the unactive icon on bottom bar
 class RollingItem extends StatelessWidget {
   const RollingItem(this.index,
-      {this.iconData, this.label, this.color, this.onTap});
+      {this.iconData, this.label, this.color, this.onTap, this.iconSize});
 
   /// Int value to indicate the index on app bar
   final int index;
 
   /// Value necessary to render the icon
   final IconData? iconData;
-
+  final double? iconSize;
   /// String to indicate the label item
   final String? label;
 
@@ -51,7 +51,7 @@ class RollingItem extends StatelessWidget {
             children: <Widget>[
               Icon(
                 iconData,
-                size: kItemSize - 4,
+                size: iconSize?? kItemSize - 4,
                 color: color ?? Colors.grey[700],
               ),
               if (label != null) ...[
@@ -82,6 +82,7 @@ class RollingActiveItem extends StatelessWidget {
     this.scrollPosition,
     this.enableRotation,
     this.onTap,
+        this.iconSize
   });
 
   /// Int value to indicate the index on app bar
@@ -89,7 +90,7 @@ class RollingActiveItem extends StatelessWidget {
 
   /// Value necessary to render the icon
   final IconData? iconData;
-
+  final double? iconSize;
   /// Value to indicate the icon color
   final Color? color;
 
@@ -106,7 +107,7 @@ class RollingActiveItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final icon = Icon(
       iconData,
-      size: kItemSize,
+      size: iconSize??kItemSize,
       color: color ?? Colors.grey[700],
     );
 
