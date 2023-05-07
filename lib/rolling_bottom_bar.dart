@@ -22,7 +22,7 @@ class RollingBottomBar extends StatefulWidget {
   /// Color to indicate the unactive item
   final Color? itemColor;
 
-  final double? iconSize;
+  final double iconSize;
 
   /// Color to indicate the active item
   final Color? activeItemColor;
@@ -41,7 +41,7 @@ class RollingBottomBar extends StatefulWidget {
       @required this.controller,
       @required this.items,
       @required this.onTap,
-        this.iconSize,
+        required this.iconSize,
       this.color = Colors.white,
       this.itemColor,
       this.activeItemColor = Colors.green,
@@ -111,7 +111,7 @@ class _RollingBottomBarState extends State<RollingBottomBar> {
                   left: kCircleMargin + _itemXByIndex(i),
                   child: RollingItem(
                     i,
-                    iconSize: widget.iconSize??24,
+                    iconSize: widget.iconSize,
                     iconData: widget.items![i].iconData,
                     label: widget.items![i].label,
                     color: widget.itemColor,
