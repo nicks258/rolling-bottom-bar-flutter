@@ -20,14 +20,14 @@ class RollingBottomBarItem {
 /// Class to generate the unactive icon on bottom bar
 class RollingItem extends StatelessWidget {
   const RollingItem(this.index,
-      {this.iconData, this.label, this.color, this.onTap, this.iconSize});
+      {this.iconData, this.label, this.color, this.onTap, required this.iconSize});
 
   /// Int value to indicate the index on app bar
   final int index;
 
   /// Value necessary to render the icon
   final IconData? iconData;
-  final double? iconSize;
+  final double iconSize;
   /// String to indicate the label item
   final String? label;
 
@@ -51,7 +51,7 @@ class RollingItem extends StatelessWidget {
             children: <Widget>[
               Icon(
                 iconData,
-                size: iconSize?? kItemSize - 4,
+                size: iconSize,
                 color: color ?? Colors.grey[700],
               ),
               if (label != null) ...[
